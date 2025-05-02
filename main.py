@@ -29,7 +29,7 @@ async def generar_imagen(request: Request):
         prompt = data.get("prompt")
         image_url = data.get("image_url")
         mask = data.get("mask")
-        creativity = float(data.get("creativity", 0.2))
+        creativity = float(data.get("creativity", 1))
 
         if not 0 <= creativity <= 1:
             raise ValueError("El valor de 'creativity' debe estar entre 0 y 1.")
