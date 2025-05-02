@@ -1,8 +1,5 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI
-from fastapi.responses import FileResponse
-
 import requests
 
 app = FastAPI()
@@ -14,10 +11,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.get("/imagen-generada")
-def get_image():
-    return FileResponse("ruta/a/imagen_generada.png", media_type="image/png")
 
 @app.post("/api/generar-imagen")
 async def generar_imagen(request: Request):
