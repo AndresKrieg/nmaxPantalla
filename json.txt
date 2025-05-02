@@ -1,0 +1,40 @@
+ ///////////buen resultado, el mas aproximado a lo que se busca///////////////
+ 
+ MODEL_VERSION = "95b7223104132402a9ae91cc677285bc5eb997834bd2349fa486f53910fd68b3"           
+            json={
+                "version": MODEL_VERSION,
+                "input": {
+                    "hdr": 0,
+                    "mask": image_mask,
+                    "image": image_url,
+                    "steps": 25,
+                    "width": 1024,
+                    "height": 512,
+                    "prompt": prompt,
+                    "negative_prompt": negative_prompt,
+                    "scheduler": "DPMSolverMultistep",
+                    "creativity": 0.2,
+                    "resolution": "original",
+                    "resemblance": 0.5,
+                    "guidance_scale": 7.5
+                }
+
+
+
+///////////////////////buen resultado////////////////////
+
+MODEL_VERSION = "507ddf6f977a7e30e46c0daefd30de7d563c72322f9e4cf7cbac52ef0f667b13" 
+{
+  "hdr": 0.2,
+  "mask": "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2025/04/yamahaNmaxBgImgAI-mask.jpg",
+  "image": "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2025/04/yamahaNmaxBgImgAI.jpg",
+  "steps": 20,
+  "prompt": "A sleek Yamaha scooter with a rider on it, driving on an ambient wooded at night. The background features a city with high skyscrapers, environment with soft glowing streetlights style anime. The scene has cinematic lighting, slightly misty atmosphere, and realistic reflections on the ground. The style is anime evoking sad, advertising-grade photography.",
+  "scheduler": "DPMSolverMultistep",
+  "creativity": 1,
+  "guess_mode": false,
+  "resolution": "original",
+  "resemblance": 0.26,
+  "guidance_scale": 15.79,
+  "negative_prompt": "blurry, distorted, extra limbs, modify mask, floating objects, surreal background, unrealistic lighting, low quality, wrong colors, vehicle flying, deformed rider, shadows missing, duplicated wheels, glitch, abstract art\\n"
+}

@@ -16,7 +16,7 @@ app.add_middleware(
 async def generar_imagen(request: Request):
     try:
         data = await request.json()
-        print("📥 Recibido del frontend:", data)
+        print("Recibido del frontend:", data)
         model_version = data.get("model_version")
         replicate_token = data.get("replicate_token")
         prompt = data.get("prompt")
@@ -32,17 +32,17 @@ async def generar_imagen(request: Request):
 
         if not replicate_token:
             return {"error": "No se recibió la API key"}
-        print(f"🔑 Token que se está usando para Replicate: {replicate_token}") 
+        print(f"Token que se está usando para Replicate: {replicate_token}") 
 
         if not model_version:
             return {"error": "No se recibió la la version del modelo"}
-        print(f"🔑 version del modelo que se está usando para Replicate: {model_version}") 
+        print(f"version del modelo que se está usando para Replicate: {model_version}") 
 
         if not prompt or not image_url:
             return {"error": "Faltan parámetros (prompt o image_url)"}
 
         image_mask = mask
-        negative_prompt = "blurry, two riders, respect the mask, distorted, extra limbs, modify mask, unrealistic lighting, low quality, wrong colors, vehicle flying, deformed rider, shadows missing, duplicated wheels, glitch, no tire tracks"
+        negative_prompt = "blurry, two riders, respect the mask, distorted, extra limbs, modify mask, floating objects, surreal background, unrealistic lighting, low quality, wrong colors, vehicle flying, deformed rider, shadows missing, duplicated wheels, glitch, abstract art"
 
         # Enviar solicitud a Replicate
         response = requests.post(
@@ -71,7 +71,7 @@ async def generar_imagen(request: Request):
             }
         ) 
 
-        print("📤 Enviando a Replicate:", {
+        print("Enviando a Replicate:", {
             "prompt": prompt,
             "image": image_url,
             "mask": mask,
@@ -92,7 +92,7 @@ async def generar_imagen(request: Request):
                 headers={"Authorization": f"Token {replicate_token}"}
             ).json()
 
-            print("⌛ Estado actual:", result["status"])
+            print("Estado actual:", result["status"])
 
             if result["status"] == "succeeded":
                 return {"imagen_generada": result["output"][0]}
@@ -100,5 +100,5 @@ async def generar_imagen(request: Request):
                 return {"error": "Fallo en la generación de imagen"}
 
     except Exception as e:
-        print("❌ Error inesperado:", str(e))
+        print("Error inesperado:", str(e))
         return {"error": f"Error en el backend: {str(e)}"}  
