@@ -59,7 +59,7 @@ async def generar_imagen(request: Request):
                     "image": image_url,
                     "steps": 25,
                     "width": 1024,
-                    "height": 580,
+                    "height": 512,
                     "prompt": prompt,
                     "negative_prompt": negative_prompt,
                     "scheduler": "DPMSolverMultistep",
