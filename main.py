@@ -58,7 +58,7 @@ async def generar_imagen(request: Request):
                     "mask": image_mask,
                     "image": image_url,
                     "steps": 25,
-                    "width": 640,
+                    "width": 576,
                     "height": 1024,
                     "prompt": prompt,
                     "negative_prompt": negative_prompt,
